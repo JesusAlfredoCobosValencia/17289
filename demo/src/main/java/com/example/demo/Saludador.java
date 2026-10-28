@@ -1,7 +1,6 @@
-package mx.uv.fei.demo;
+package com.example.demo;
 
-public class Saludador{
-
+public class Saludador {
     private String contenido;
 
     public String getContenido() {
@@ -11,5 +10,4 @@ public class Saludador{
     public Saludador(String contenido) {
         this.contenido = contenido;
     }
-
 }

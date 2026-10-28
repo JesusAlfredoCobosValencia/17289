@@ -8,40 +8,43 @@
 <body>
     <h1>json/fetch</h1>
     <button onclick="llamar()">fetch</button>
-    <button onclick="llamar2()">XMLHttpRequest</button>
+    <button onclick="llamar2()">XMLhttpRequest</button>
     <button onclick="llamar3()">fetch async/await</button>
     <button onclick="llamar4()">fetch blob</button>
+    <button onclick="llamar5()">???</button>
     <img src="" alt="" id="img1">
     <img src="https://picsum.photos/id/2/200/200" alt="" id="img2">
     <a href="https://picsum.photos/id/2/200/200">resultado</a>
-
     <script>
         elemento_imagen = document.getElementById("img1")
+
         function llamar() {
             url = "https://jsonplaceholder.typicode.com/users/1"
             parametros = ""
-
             fetch(url)
-            .then(respuesta => {
-                return respuesta.json()
+            .then(respuesta=>{ 
+                usuario = respuesta.json()
+                console.log(usuario)
+                return usuario
             })
-            .then(datos => {
-                console.log(datos.name)
-                console.log(datos.address)
+            .then(datos=>{
+                console.log(datos)
+                u = datos
+                console.log(u.name)
             })
-            .catch(error => {
+            .catch(error=>{
                 console.log(error)
             })
         }
 
         function llamar2() {
+            // xmlhttprequest
             url = "https://jsonplaceholder.typicode.com/users/1"
-
             xhttp = new XMLHttpRequest()
-            xhttp.onload = function(){
+            xhttp.onload = function () {
                 usuario = xhttp.response
-                u = JSON.parse(usuario)
-                console.log(u.name)
+                u = JSON.parse (usuario) 
+                console.log( u.name )
             }
             xhttp.open("GET",url)
             xhttp.send()
@@ -50,27 +53,25 @@
         function llamar3() {
             url = "https://jsonplaceholder.typicode.com/users/1"
             parametros = ""
-
             fetch(url)
-            .then(async respuesta => {
-                console.log("respuesta")
+            .then(async respuesta=>{ 
+                console.log("respuesta:")
                 console.log(respuesta)
                 usuario = await respuesta.json()
                 console.log(usuario)
                 return usuario
             })
-            .then(datos => {
+            .then(datos=>{
                 console.log(datos)
                 u = datos
                 console.log(u.name)
             })
-            .catch(error => {
+            .catch(error=>{
                 console.log(error)
             })
         }
-
-
-        function llamar4(){
+    
+        function llamar4() {
             url = "https://picsum.photos/id/1/200/200"
             fetch(url)
             .then(
@@ -87,18 +88,20 @@
                 console.log(imagen)
             })
             .catch(
-                error =>{
+                error => {
                     console.log(error)
                 }
             )
         }
-
-
-
-
-
-
-
-    </script>
+   
+        function llamar5() {
+            url = ""
+            fetch()
+            .then()
+            .then()
+            .catch()
+        }
+   
+   </script>
 </body>
 </html>
