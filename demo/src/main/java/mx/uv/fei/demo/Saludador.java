@@ -1,4 +1,4 @@
-package com.example.demo;
+package mx.uv.fei.demo;
 
 public class Saludador {
     private String contenido;

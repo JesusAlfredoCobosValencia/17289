@@ -1,4 +1,4 @@
-package com.example.demo;
+package mx.uv.fei.demo;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;

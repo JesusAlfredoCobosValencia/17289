@@ -1,4 +1,4 @@
-package com.example.demo;
+package mx.uv.fei.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

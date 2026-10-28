@@ -1,4 +1,4 @@
-package com.example.demo;
+package mx.uv.fei.demo;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
