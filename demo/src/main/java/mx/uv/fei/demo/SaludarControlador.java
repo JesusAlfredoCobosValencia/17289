@@ -1,7 +1,5 @@
 package mx.uv.fei.demo;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -9,11 +7,14 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@CrossOrigin( origins = "*")
+@CrossOrigin 
 @RestController
-public class SaludarControlador {
+public class SaludarControlador{
+    
     String nombre;
 
     @GetMapping("/saludos")
@@ -28,17 +29,17 @@ public class SaludarControlador {
 
     @PostMapping("/nombramientos")
     public void nombre(){
-        nombre="Rafael";
+        nombre="Francisco";
     }
 
     @PutMapping("/nombramientos")
     public void met1(){
-        nombre="actualizar";
+        nombre = "actualizar";    
     }
 
     @DeleteMapping("/nombramientos")
     public void met2(){
-        nombre=null;
+        nombre = null;
     }
 
     @GetMapping("/saludador/{nombre}")
@@ -57,17 +58,17 @@ public class SaludarControlador {
     public String indice(){
         return """
                 <h1>menú principal</h1>
-                <ul>
+                    <ul>
                     <li><a href='/saludos'>/saludos</a></li>
                     <li><a href='/despedidas'>/despedidas</a></li>
                     <li>/nombramientos (Post - Put - Delete)</li>
-                    <li><a href='/saludador/default'>/saludador/{nombre}</a></li>
-                    <li><a href='/saludador2/default2'>/saludador2/{nombreX}</a></li>
+                    <li><a href ='/saludador/default'>/saludador/{nombre}</a></li>
+                    <li><a href ='/saludador2/default2'>/saludador2/{nombreX}</a></li>
                     <li>/crearSaludador (Post)</li>
-                    <li><a href='/obtenerSaludador'>/obtenerSaludador</a></li>
-                    <li><a href='/getQuery'>/getQuery?nombre=xxx&paterno=yyy</a></li>
-                    <li><a href='/getQuery2'>/getQuery2?nombre=xxx[&paterno=yyy]</a></li>
-                </ul>
+                    <li><a href ='/obtenerSaludador'>/obtenerSaludador</a></li>
+                    <li><a href ='/getQuery'>/getQuery?nombre=xxx&paterno=yyy</a></li>
+                    <li><a href ='/getQuery2'>/getQuery2?nombre=xxx[&paterno=yyy]</a></li>
+                    </ul>
                 """;
     }
 
@@ -75,7 +76,7 @@ public class SaludarControlador {
 
     @PostMapping("/crearSaludador")
     public void crearSaludador(@RequestBody Saludador nombre){
-        System.out.println("post:" + nombre);
+        System.out.println("get:" + nombre);
         saludador = nombre;
     }
 
@@ -88,9 +89,10 @@ public class SaludarControlador {
     public String GetQueryString(@RequestParam String nombre, @RequestParam String paterno){
         return nombre + " " + paterno;
     }
+
     @GetMapping("/getQuery2")
-    public String GetQueryString2(@RequestParam String nombre, 
-    @RequestParam(defaultValue = "") String paterno){
+    public String GetQueryString2(@RequestParam String nombre, @RequestParam(defaultValue = "") String paterno){
         return nombre + " " + paterno;
     }
+
 }
